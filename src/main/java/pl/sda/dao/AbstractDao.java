@@ -47,4 +47,12 @@ public abstract class AbstractDao<T> {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+
+    public void remove(T record) {
+        EntityManager entityManager = EntityManagerProvider.getEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.remove(record);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
 }
